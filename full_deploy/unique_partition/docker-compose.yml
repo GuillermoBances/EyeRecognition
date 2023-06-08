@@ -1,0 +1,29 @@
+version: '3'
+
+networks:
+  kafka_network:
+    name: kafka_network
+    
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: capstone_drowsiness_zookeeper
+    ports:
+      - "2181:2181"
+    networks:
+      - kafka_network
+      
+  kafka:
+    image: wurstmeister/kafka
+    container_name: capstone_drowsiness_kafka_server
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "capstone_drowsiness_intake:1:1,capstone_drowsiness_output:1:1"
+    networks:
+      - kafka_network
+    depends_on:
+      - zookeeper
+      
