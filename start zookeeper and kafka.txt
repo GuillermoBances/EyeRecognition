@@ -1,0 +1,24 @@
+1) DOWNLOAD KAFKA TO LOCAL DIRECTORY
+
+https://kafka.apache.org/downloads
+EXAMPLE: C:\ProgramData\Kafka
+
+2) RUN ZOOKEEPER:
+
+cd C:\ProgramData\Kafka\kafka_2.13-3.1.0\bin\windows
+zookeeper-server-start.bat C:\ProgramData\Kafka\kafka_2.13-3.1.0\config\zookeeper.properties
+
+3) RUN KAFKA SERVER IN OTHER CMD
+
+cd C:\ProgramData\Kafka\kafka_2.13-3.1.0\bin\windows
+kafka-server-start.bat C:\ProgramData\Kafka\kafka_2.13-3.1.0\config\server.properties
+
+4) RUN PRODUCER_MAIN.PY
+
+cd C:\Users\guill\Desktop\INDIZEN\Capstone\Repositorio\CV_Capstone\python
+python producer_main.py
+
+5) RUN CONSUMER_MAIN.PY
+
+cd C:\Users\guill\Desktop\INDIZEN\Capstone\Repositorio\CV_Capstone\python
+python consumer_main.py
